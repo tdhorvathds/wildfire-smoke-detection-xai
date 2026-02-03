@@ -1,8 +1,14 @@
+"""
+NOTE:
+This script contains local absolute paths used during thesis experiments.
+To rerun the code, adapt the path definitions in the CONFIG section below
+(e.g., VAL_IMG_DIR, VAL_JSON) to match your local directory structure.
+"""
+
 from pathlib import Path
 import pandas as pd
 import numpy as np
 import pickle
-import re
 import torch
 import torchvision.transforms as T
 from torch.utils.data import DataLoader
@@ -14,20 +20,18 @@ from dataclasses import dataclass
 from training.train_faster_rcnn import get_fasterrcnn_model
 
 import matplotlib.pyplot as plt
-import matplotlib.patches as patches
-from PIL import Image
 
 MODEL_TYPE = "yolo"   # "yolo" or "rcnn"
-DATASET_TYPE = "pyro"  # "pyro" or "figlib"
+DATASET_TYPE = "pyro"
 
 DO_YOLO_SANITY_PLOT = False
 
-BASE_RESULTS = Path(r"D:\github\XAI-wildfire-smoke-detection\final_results")
+BASE_RESULTS = Path("path\to\base")
 
-VAL_IMG_DIR = r"D:\github\data\figlib_with_bounding_boxes\images"
-VAL_JSON    = Path(r"D:\github\data\figlib_with_bounding_boxes\figlib_coco_annotations.json")
+VAL_IMG_DIR = "path\to\images"
+VAL_JSON    = Path("path\to\json")
 
-OUT_DIR = Path("../final_results/evaluation_thesis")
+OUT_DIR = Path("out\dir")
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
 YOLO_CACHE_DIR = BASE_RESULTS / "yolo_cache"
@@ -78,31 +82,6 @@ class SmokeValDataset(CocoDetection):
         return img, target
 
 
-class FIgLibDataset(torch.utils.data.Dataset):
-    """
-    Lightweight dataset for FIgLib inference-only evaluation.
-    No annotations are assumed.
-    """
-    def __init__(self, root_dir):
-        self.root_dir = Path(root_dir)
-        self.img_paths = sorted([
-            p for p in self.root_dir.rglob("*")
-            if p.suffix.lower() in [".jpg", ".png"]
-        ])
-        self.tf = T.ToTensor()
-
-    def __len__(self):
-        return len(self.img_paths)
-
-    def __getitem__(self, idx):
-        img_path = self.img_paths[idx]
-        img = Image.open(img_path).convert("RGB")
-        return self.tf(img), str(img_path)
-
-
-
-
-
 def coco_stats_to_dict(stats):
     return {
         "AP50_95": stats[0],
@@ -118,11 +97,6 @@ def coco_stats_to_dict(stats):
         "AR_medium": stats[10],
         "AR_large": stats[11],
     }
-
-
-def yolo_cache_path(stage: str, model_name: str) -> Path:
-    return YOLO_CACHE_DIR / stage / model_name / "predictions.pkl"
-
 
 
 def rcnn_cache_path(stage: str, model_name: str) -> Path:
@@ -148,13 +122,6 @@ def coco_collate_fn(batch):
     return tuple(zip(*batch))
 
 
-def figlib_collate_fn(batch):
-    # batch is a list of (img_tensor, path_str)
-    images, paths = zip(*batch)
-    return list(images), list(paths)
-
-
-
 def load_frcnn(ckpt_path, device):
 
     cfg = EvalConfig()
@@ -172,30 +139,25 @@ def load_frcnn(ckpt_path, device):
 
     return model
 
-# ======================================================
+# ===========
 # MAIN
-# ======================================================
+# ===========
 def run_evaluation():
 
-    # ---------------- DATASET ----------------
-    if DATASET_TYPE == "figlib":
-        dataset = FIgLibDataset(VAL_IMG_DIR)
-        loader = DataLoader(dataset, batch_size=4, shuffle=False, num_workers=0, collate_fn=figlib_collate_fn)
-    else:
-        dataset = SmokeValDataset(VAL_IMG_DIR, VAL_JSON)
-        loader = DataLoader(
-            dataset,
-            batch_size=4,
-            shuffle=False,
-            num_workers=0,
-            collate_fn=coco_collate_fn
-        )
+    dataset = SmokeValDataset(VAL_IMG_DIR, VAL_JSON)
+    loader = DataLoader(
+        dataset,
+        batch_size=4,
+        shuffle=False,
+        num_workers=0,
+        collate_fn=coco_collate_fn
+    )
 
     rows = []
 
-    # ==================================================
+    # ===============
     # YOLO
-    # ==================================================
+    # ===============
     if MODEL_TYPE == "yolo":
 
         for stage_dir in sorted((BASE_RESULTS / "yolo").glob("stage*")):
@@ -206,19 +168,15 @@ def run_evaluation():
                 if not ckpt.exists():
                     continue
 
-                print(f"📦 YOLO | {stage} | {model_dir.name}")
+                print(f"YOLO | {stage} | {model_dir.name}")
                 yolo = YOLO(str(ckpt))
                 preds = []
 
-                if DATASET_TYPE == "figlib":
-                    img_paths = [str(p) for p in dataset.img_paths]
-                    img_ids = list(range(len(img_paths)))
-                else:
-                    img_ids = dataset.ids
-                    img_paths = [
-                        str(Path(VAL_IMG_DIR) / dataset.coco.imgs[i]["file_name"])
-                        for i in img_ids
-                    ]
+                img_ids = dataset.ids
+                img_paths = [
+                    str(Path(VAL_IMG_DIR) / dataset.coco.imgs[i]["file_name"])
+                    for i in img_ids
+                ]
 
                 BATCH = 8
                 for i in range(0, len(img_paths), BATCH):
@@ -253,7 +211,6 @@ def run_evaluation():
                 with open(out_dir / "predictions.pkl", "wb") as f:
                     pickle.dump(preds, f)
 
-                # evaluate only if pyro
                 metrics = {}
                 if DATASET_TYPE == "pyro":
                     metrics = evaluate_coco_from_cache(preds, dataset)
@@ -267,9 +224,9 @@ def run_evaluation():
                 del yolo
                 torch.cuda.empty_cache()
 
-    # ==================================================
+    # =======================
     # Faster R-CNN
-    # ==================================================
+    # =======================
     elif MODEL_TYPE == "rcnn":
 
         for stage_dir in sorted((BASE_RESULTS / "rcnn").glob("stage*")):
@@ -283,56 +240,37 @@ def run_evaluation():
                 cache = load_rcnn_cache(stage, model_dir.name)
 
                 if cache is not None:
-                    print(f"📂 RCNN | {stage} | {model_dir.name} → using cached predictions")
+                    print(f"RCNN | {stage} | {model_dir.name} → using cached predictions")
                     preds = cache
 
                 else:
-                    print(f"📦 RCNN | {stage} | {model_dir.name} → running inference")
+                    print(f"RCNN | {stage} | {model_dir.name} → running inference")
                     model = load_frcnn(ckpt, DEVICE)
                     preds = []
 
                     for batch in loader:
 
-                        if DATASET_TYPE == "figlib":
-                            images, paths = batch
-                            images = [img.to(DEVICE) for img in images]
+                        images, targets = batch
+                        images = [img.to(DEVICE) for img in images]
 
-                            with torch.no_grad():
-                                outputs = model(images)
+                        with torch.no_grad():
+                            outputs = model(images)
 
-                            for path, out in zip(paths, outputs):
-                                preds.append({
-                                    "image_id": path,
-                                    "image_path": path,
-                                    "event_id": Path(path).parent.name,
-                                    "boxes": out["boxes"].detach().cpu().numpy(),
-                                    "scores": out["scores"].detach().cpu().numpy(),
-                                    "labels": out["labels"].detach().cpu().numpy(),
-                                })
-
-                        else:  # Pyro-SDIS
-                            images, targets = batch
-                            images = [img.to(DEVICE) for img in images]
-
-                            with torch.no_grad():
-                                outputs = model(images)
-
-                            for tgt, out in zip(targets, outputs):
-                                preds.append({
-                                    "image_id": tgt["image_id"].item(),
-                                    "image_path": None,
-                                    "event_id": None,
-                                    "boxes": out["boxes"].detach().cpu().numpy(),
-                                    "scores": out["scores"].detach().cpu().numpy(),
-                                    "labels": out["labels"].detach().cpu().numpy(),
-                                })
+                        for tgt, out in zip(targets, outputs):
+                            preds.append({
+                                "image_id": tgt["image_id"].item(),
+                                "image_path": None,
+                                "event_id": None,
+                                "boxes": out["boxes"].detach().cpu().numpy(),
+                                "scores": out["scores"].detach().cpu().numpy(),
+                                "labels": out["labels"].detach().cpu().numpy(),
+                            })
 
                     save_rcnn_cache(stage, model_dir.name, preds)
 
                     del model
                     torch.cuda.empty_cache()
 
-                # ✅ ALWAYS evaluate + append
                 metrics = {}
                 if DATASET_TYPE == "pyro":
                     metrics = evaluate_coco_from_cache(preds, dataset)
@@ -343,12 +281,11 @@ def run_evaluation():
                     **metrics
                 })
 
-
     df = pd.DataFrame(rows)
 
     out_csv = OUT_DIR / f"{MODEL_TYPE}_{DATASET_TYPE}_results.csv"
     df.to_csv(out_csv, index=False)
-    print(f"💾 Saved → {out_csv}")
+    print(f"Saved → {out_csv}")
 
     return df
 
@@ -368,9 +305,8 @@ def evaluate_coco_from_cache(preds, dataset):
 
     evaluator.update(results)
 
-    # REQUIRED sequence
     evaluator.accumulate()
-    evaluator.summarize()   # ← THIS WAS MISSING
+    evaluator.summarize()
 
     stats = evaluator.coco_eval["bbox"].stats
     return coco_stats_to_dict(stats)
@@ -387,7 +323,6 @@ def plot_stage_comparison(df):
         "AP_large",
     ]
 
-    # --------- safety checks ---------
     required_cols = {"stage", "model"} | set(METRIC_COLS)
     if df.empty or not required_cols.issubset(df.columns):
         raise ValueError(
@@ -395,7 +330,6 @@ def plot_stage_comparison(df):
             f"DF shape={df.shape}, columns={df.columns.tolist()}"
         )
 
-    # --------- aggregate ---------
     grouped = (
         df
         .groupby(["stage", "model"])[METRIC_COLS]
@@ -434,58 +368,7 @@ def plot_stage_comparison(df):
     plt.savefig(OUT_PLOT)
     plt.close()
 
-    print(f"📊 Saved plot → {OUT_PLOT}")
-
-
-def plot_yolo_vs_gt(image_id, dataset, preds, img_dir, save_path=None):
-    """
-    Visualize GT vs YOLO predictions for a single image.
-    """
-
-    img_info = dataset.coco.imgs[image_id]
-    img_path = Path(img_dir) / img_info["file_name"]
-    img = Image.open(img_path).convert("RGB")
-
-    fig, ax = plt.subplots(1, figsize=(6, 6))
-    ax.imshow(img)
-    ax.axis("off")
-
-    # ---- GT boxes (green)
-    ann_ids = dataset.coco.getAnnIds(imgIds=image_id)
-    anns = dataset.coco.loadAnns(ann_ids)
-
-    for ann in anns:
-        x, y, w, h = ann["bbox"]
-        rect = patches.Rectangle(
-            (x, y), w, h,
-            linewidth=2,
-            edgecolor="lime",
-            facecolor="none"
-        )
-        ax.add_patch(rect)
-
-    # ---- YOLO boxes (red)
-    pred = next(p for p in preds if p["image_id"] == image_id)
-
-    for box, score in zip(pred["boxes"], pred["scores"]):
-        x1, y1, x2, y2 = box
-        rect = patches.Rectangle(
-            (x1, y1),
-            x2 - x1,
-            y2 - y1,
-            linewidth=2,
-            edgecolor="red",
-            facecolor="none"
-        )
-        ax.add_patch(rect)
-        ax.text(x1, y1, f"{score:.2f}", color="red", fontsize=8)
-
-    ax.set_title("GT (green) vs YOLO (red)")
-
-    if save_path:
-        plt.savefig(save_path, bbox_inches="tight", dpi=300)
-    plt.show()
-
+    print(f"Saved plot → {OUT_PLOT}")
 
 if __name__ == "__main__":
 

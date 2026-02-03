@@ -1,372 +1,200 @@
-# ======================================================
-# YOLO Training Script — Static & Dynamic Weighted Sampling + Aug YAML + Run Config Logging
-# ======================================================
+# ===============================
+# Batch Runner for YOLO Training
+# ===============================
+import sys
+import time
+import csv
+import subprocess
 import json
-import yaml
-import random
-import argparse
 from pathlib import Path
-import sys, datetime
-import numpy as np
+from datetime import datetime
+import pandas as pd
 import torch
-from ultralytics import YOLO
-import urllib.request
-from yolo_weighted_sampler import WeightedSamplerTrainer, log_class_balance
 
 # -------------------------
-# Setup
+# Paths
 # -------------------------
-CURRENT_DIR = Path(__file__).resolve().parent
-SRC_ROOT = CURRENT_DIR
-if str(SRC_ROOT) not in sys.path:
-    sys.path.append(str(SRC_ROOT))
+PROJECT_DIR = Path(__file__).resolve().parents[1]
+SRC_DIR = PROJECT_DIR / "training"
+CSV_PATH = PROJECT_DIR / "configs" / "yolov11" / "yolo_batch_example.csv"
+BATCH_DIR = PROJECT_DIR / "results" / "trial"
+BATCH_LOG = BATCH_DIR / "experiment_summary.csv"
+BATCH_DIR.mkdir(parents=True, exist_ok=True)
 
-EPOCHS_OVERRIDE = None  # set to int to force fixed epochs
+DEFAULT_PROJECT = "outputs/predictions"
 
 # -------------------------
-# Official weights
+# Helpers
 # -------------------------
-MODEL_GRID = {
-    "yolov11": {
-        "s": "https://github.com/ultralytics/assets/releases/download/v8.3.0/yolov11s.pt"
+def gpu_name():
+    return torch.cuda.get_device_name(0) if torch.cuda.is_available() else "CPU"
+
+def rowval(row, key, default=None):
+    v = row.get(key, default)
+    if pd.isna(v):
+        return default
+    return v
+
+def resolve_run_dir(project_value, name_value, project_root):
+    p = Path(str(project_value))
+    if not p.is_absolute():
+        p = project_root / p
+    return (p / str(name_value)).resolve()
+
+def checkpoint_status(run_dir):
+    best = run_dir / "weights" / "best.pt"
+    last = run_dir / "weights" / "last.pt"
+    return {"best_exists": best.is_file(), "last_exists": last.is_file()}
+
+def job_completed(run_dir):
+    s = checkpoint_status(run_dir)
+    return s["best_exists"] and s["last_exists"]
+
+def build_name(row):
+    variant = rowval(row, "model_variant", f"{rowval(row,'model_family','yolov11')}{rowval(row,'model_size','s')}")
+    aug = "aug" if str(rowval(row, "aug", "")).lower() in {"1","true","t","yes","y"} else "noaug"
+    ws_mode = str(rowval(row, "weight_sampling", "false")).lower().strip()
+    if ws_mode == "static":
+        ws = "ws_static"
+    elif ws_mode == "dynamic":
+        ws = "ws_dynamic"
+    else:
+        ws = "nows"
+    return f"{variant}_{aug}_{ws}"
+
+def ensure_columns(df):
+    defaults = {
+        "job_id": range(1, len(df)+1),
+        "model_family": "yolov11",
+        "model_size": "s",
+        "aug": False,
+        "optimizer": "SGD",
+        "lr0": 0.0005,
+        "momentum": 0.937,
+        "weight_decay": 0.0005,
+        "scheduler": "cosine",
+        "epochs": 50,
+        "patience": 6,
+        "imgsz": 640,
+        "batch": 32,
+        "num_workers": 16,
+        "data": "data/pyro-sdis/splits_3fold/fold3/data_fold3.yaml",
+        "label_smoothing": 0.05,
+        "weight_sampling": "false",
+        "project": DEFAULT_PROJECT,
+        "seed": 42,
     }
-}
-
-def ensure_model_exists(family: str, size: str) -> Path:
-    """
-    Ensure the YOLO model weights exist locally.
-    1. First try to load from 'weights/{family}{size}.pt'
-    2. If not available, try to download via Ultralytics (YOLO("..."))
-    3. If that fails, raise a clear error.
-    """
-    model_name = f"{family}{size}.pt"
-    weights_dir = Path("weights")
-    weights_dir.mkdir(exist_ok=True)
-    local_path = weights_dir / model_name
-
-    # --- Try to use local file ---
-    if local_path.exists():
-        print(f"[INFO] Using local pretrained weights → {local_path}")
-        return local_path
-
-    # --- Try direct Ultralytics model registry (auto-download) ---
-    print(f"[INFO] Local file not found → attempting Ultralytics download for {model_name}")
-    try:
-        _ = YOLO(model_name)
-        cached_path = Path.home() / ".cache" / "ultralytics" / "models" / model_name
-        if cached_path.exists():
-            print(f"[INFO] Successfully downloaded YOLO model to cache → {cached_path}")
-
-            urllib.request.urlretrieve(str(cached_path), str(local_path))
-            print(f"[INFO] Copied cached model to → {local_path}")
-            return local_path
-        else:
-            print("[WARN] Ultralytics cache path not found after download attempt.")
-    except Exception as e:
-        print(f"[WARN] Could not auto-download via Ultralytics: {e}")
-
-    raise FileNotFoundError(
-        f"[ERROR] Pretrained weights not found or could not be downloaded: {local_path}\n"
-        f"Please place '{model_name}' in the 'weights/' folder manually."
-    )
+    for k, v in defaults.items():
+        if k not in df.columns:
+            df[k] = v
+    if "name" not in df.columns:
+        df["name"] = [build_name(df.iloc[i]) for i in range(len(df))]
+    if "model_variant" not in df.columns:
+        df["model_variant"] = df.apply(
+            lambda r: f"{r.get('model_family','yolov11')}{r.get('model_size','s')}",
+            axis=1
+        )
+    return df
 
 # -------------------------
-# Utils
+# Logging
 # -------------------------
-def set_seed(seed: int = 42):
-    random.seed(seed); np.random.seed(seed)
-    torch.manual_seed(seed); torch.cuda.manual_seed_all(seed)
-    torch.backends.cudnn.deterministic = True
-    torch.backends.cudnn.benchmark = False
+def log_result(row, status, start_t, end_t, err_msg="", run_dir=None):
+    """Log job results with optional augmentation + sampling info."""
+    aug_yaml_used = ""
+    sampling_mode = ""
+    if run_dir and (run_dir / "run_config.json").exists():
+        try:
+            cfg = json.loads((run_dir / "run_config.json").read_text())
+            aug_yaml_used = cfg.get("aug_yaml_used", "")
+            sampling_mode = cfg.get("weight_sampling", "")
+        except Exception:
+            pass
 
-def count_smoke_and_background(train_list_path: Path) -> tuple[int, int]:
-    train_list_path = Path(train_list_path)
-    if not train_list_path.exists():
-        raise FileNotFoundError(f"Train list not found: {train_list_path}")
-    smoke_count, bg_count = 0, 0
-    with open(train_list_path, "r") as f:
-        image_paths = [Path(line.strip()) for line in f if line.strip()]
-    for img_path in image_paths:
-        label_path = Path(str(img_path).replace("images", "labels")).with_suffix(".txt")
-        if not label_path.exists():
-            bg_count += 1
-            continue
-        lines = [ln for ln in label_path.read_text().splitlines() if ln.strip()]
-        if lines:
-            smoke_count += 1
-        else:
-            bg_count += 1
-    return smoke_count, bg_count
-
-def prepare_static_balanced_yaml(base_yaml_path, balanced_list_path, output_dir):
-    base_yaml = yaml.safe_load(open(base_yaml_path, "r"))
-    balanced_yaml_path = Path(output_dir) / "data_balanced.yaml"
-    base_yaml["train"] = str(balanced_list_path)
-    yaml.safe_dump(base_yaml, open(balanced_yaml_path, "w"))
-    print(f"[INFO] Created balanced data YAML → {balanced_yaml_path}")
-    return balanced_yaml_path
-
-def log_static_class_distribution(run_dir, smoke_count, bg_count):
-    out_path = Path(run_dir) / "class_distribution.json"
-    total = smoke_count + bg_count
-    data = {
-        "sampling_mode": "Static Weighted Sampling",
-        "timestamp": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-        "ratios": {
-            "smoke": smoke_count,
-            "background": bg_count,
-            "total": total,
-            "ratio_smoke": round(smoke_count / total, 4) if total else 0,
-            "ratio_background": round(bg_count / total, 4) if total else 0,
-        }
+    rec = {
+        "job_id": rowval(row, "job_id", ""),
+        "name": rowval(row, "name", ""),
+        "optimizer": rowval(row, "optimizer", ""),
+        "lr0": rowval(row, "lr0", ""),
+        "epochs": rowval(row, "epochs", ""),
+        "weight_sampling": sampling_mode or rowval(row, "weight_sampling", ""),
+        "label_smoothing": rowval(row, "label_smoothing", ""),
+        "aug_yaml_used": aug_yaml_used,
+        "status": status,
+        "error": err_msg,
+        "gpu_name": gpu_name(),
+        "started_at": datetime.fromtimestamp(start_t).strftime("%Y-%m-%d %H:%M:%S"),
+        "ended_at": datetime.fromtimestamp(end_t).strftime("%Y-%m-%d %H:%M:%S"),
+        "duration_min": round((end_t - start_t) / 60.0, 2),
     }
-    out_path.write_text(json.dumps(data, indent=2))
-    print(f"[INFO] Logged post-balancing ratios → smoke: {smoke_count}, background: {bg_count}")
-    print(f"[INFO] Saved dataset image distribution → {out_path}")
-    return out_path
+    write_header = not BATCH_LOG.exists()
+    with BATCH_LOG.open("a", newline="", encoding="utf-8") as f:
+        w = csv.DictWriter(f, fieldnames=list(rec.keys()))
+        if write_header:
+            w.writeheader()
+        w.writerow(rec)
 
 # -------------------------
-# Args
+# Command builder
 # -------------------------
-def parse_args():
-    p = argparse.ArgumentParser("Train YOLO with Static/Dynamic Weighted Sampling", add_help=True)
-    p.add_argument("--model_family", type=str, default="yolov11", choices=["yolov8","yolov11"])
-    p.add_argument("--model_size", type=str, default="n", choices=["n","s","m","l","x"])
-    p.add_argument("--epochs", type=int, default=50)
-    p.add_argument("--patience", type=int, default=6)
-    p.add_argument("--imgsz", type=int, default=640)
-    p.add_argument("--batch", type=int, default=32)
-    p.add_argument("--num_workers", type=int, default=16)
-    p.add_argument("--optimizer", type=str, default="SGD")
-    p.add_argument("--lr0", type=float, default=0.005)
-    p.add_argument("--momentum", type=float, default=0.937)
-    p.add_argument("--weight_decay", type=float, default=0.0005)
-    p.add_argument("--scheduler", type=str, default="cosine")
-    p.add_argument("--data", type=str, default="data/pyro-sdis/splits_3fold/fold3/data_fold3.yaml")
-    p.add_argument("--seed", type=int, default=42)
-    p.add_argument("--weight_sampling", type=str, default="false")  # false|static|dynamic
-    p.add_argument("--label_smoothing", type=float, default=0.05)
-    # augmentation toggle (loads YAMLs)
-    p.add_argument("--use_aug", type=str, default="False")              # "True"/"False"
-    p.add_argument("--project", type=str, default="results/batch_runs/core")
-    p.add_argument("--name", type=str, default="yolo_run")
-    args, _ = p.parse_known_args()
-    return args
+def yolo_cmd(row):
+    """Build CLI command for yolo_core.py."""
+    cmd = [
+        sys.executable, str(SRC_DIR / "yolo_core.py"),
+        "--model_family", str(rowval(row, "model_family", "yolov11")),
+        "--model_size", str(rowval(row, "model_size", "s")),
+        "--model_variant", str(rowval(row, "model_variant", "")),
+        "--use_aug", str(rowval(row, "use_aug", False)),
+        "--optimizer", str(rowval(row, "optimizer", "SGD")),
+        "--lr0", str(rowval(row, "lr0", 0.005)),
+        "--momentum", str(rowval(row, "momentum", 0.937)),
+        "--weight_decay", str(rowval(row, "weight_decay", 0.0005)),
+        "--scheduler", str(rowval(row, "scheduler", "cosine")),
+        "--epochs", str(rowval(row, "epochs", 50)),
+        "--patience", str(rowval(row, "patience", 6)),
+        "--imgsz", str(rowval(row, "imgsz", 640)),
+        "--batch", str(rowval(row, "batch", 32)),
+        "--num_workers", str(rowval(row, "num_workers", 16)),
+        "--project", str(rowval(row, "project", DEFAULT_PROJECT)),
+        "--name", str(rowval(row, "name", "yolo_run")),
+        "--seed", str(rowval(row, "seed", 42)),
+        "--weight_sampling", str(rowval(row, "weight_sampling", "false")),
+        "--label_smoothing", str(rowval(row, "label_smoothing", 0.05)),
+    ]
+    return cmd
 
 # -------------------------
-# Main
+# Main loop
 # -------------------------
 def main():
-    args = parse_args()
-    set_seed(int(args.seed))
-    epochs = int(EPOCHS_OVERRIDE) if EPOCHS_OVERRIDE else int(args.epochs)
+    df = pd.read_csv(CSV_PATH)
+    df = ensure_columns(df)
 
-    # run directory and config logging
-    run_dir = Path(args.project) / args.name
-    (run_dir / "weights").mkdir(parents=True, exist_ok=True)
-    (run_dir / "eval_test").mkdir(parents=True, exist_ok=True)
+    for _, row in df.iterrows():
+        name_val = rowval(row, "name", "yolo_run")
+        run_dir = resolve_run_dir(rowval(row, "project", DEFAULT_PROJECT), name_val, PROJECT_DIR)
 
-    # augmentation YAML
-    aug_bool = str(args.use_aug).lower() in {"1","true","t","yes","y"}
-    aug_yaml = Path("src/configs/yolo_aug.yaml")
-    noaug_yaml = Path("src/configs/yolo_noaug.yaml")
-    cfg_path = aug_yaml if aug_bool else noaug_yaml
-    print(f"[AUG] Using config: {cfg_path}")
+        # Skip already finished runs
+        if job_completed(run_dir):
+            now = time.time()
+            log_result(row, "skipped_exists", now, now, run_dir=run_dir)
+            print(f"[SKIP] {name_val} already trained.")
+            continue
 
-    aug_params = {}
-    if cfg_path.exists():
+        start = time.time()
         try:
-            aug_params = yaml.safe_load(cfg_path.read_text()) or {}
+            cmd = yolo_cmd(row)
+            print("[RUN]", " ".join(cmd))
+            proc = subprocess.run(cmd, check=True, cwd=str(PROJECT_DIR))
+            end = time.time()
+            status = "ok" if proc.returncode == 0 else f"rc={proc.returncode}"
+            log_result(row, status, start, end, run_dir=run_dir)
+            print(f"[DONE] {name_val} in {(end - start)/60.0:.1f} min")
+
         except Exception as e:
-            print(f"[WARN] Could not parse {cfg_path}: {e}")
-
-
-    ULTRA_AUG_KEYS = {
-        "degrees", "translate", "scale", "shear", "perspective",
-        "hsv_h", "hsv_s", "hsv_v", "flipud", "fliplr", "mosaic", "mixup",
-        "copy_paste", "erasing", "mosaic_prob", "mixup_prob",
-    }
-    train_aug_kwargs = {k: aug_params[k] for k in ULTRA_AUG_KEYS if k in aug_params}
-
-    # save run_config.json
-    run_cfg = vars(args).copy()
-    run_cfg.update({
-        "epochs_effective": epochs,
-        "aug_yaml_used": str(cfg_path),
-        "train_aug_kwargs": train_aug_kwargs,
-    })
-    (run_dir / "run_config.json").write_text(json.dumps(run_cfg, indent=2))
-
-    # model weights
-    weights_path = ensure_model_exists(args.model_family, args.model_size)
-
-    # -------------------------
-    # Sampling mode selection
-    # -------------------------
-    sampling_mode = str(args.weight_sampling).lower().strip()
-    if sampling_mode == "false":
-        print("[INFO] Weighted sampling disabled → standard YOLO.")
-        data_path_to_use = args.data
-
-    elif sampling_mode == "static":
-        print("[INFO] Weighted sampling mode: Static")
-
-        # --- Load dataset YAML and resolve original train list ---
-        data_cfg = yaml.safe_load(open(args.data, "r"))
-        train_list = Path(data_cfg.get("train")).resolve()
-        if not train_list.exists():
-            raise FileNotFoundError(f"[ERROR] Train list not found: {train_list}")
-
-        # --- Balanced list path ---
-        balanced_list = train_list.parent / "train_balanced.txt"
-
-        # --- Deterministic oversampling setup ---
-        seed = int(args.seed)
-        random.seed(seed)
-        np.random.seed(seed)
-
-        # --- Generate if missing ---
-        if not balanced_list.exists():
-            print(f"[INFO] No existing balanced list found → creating a new one from {train_list}")
-
-            image_paths = [Path(p.strip()) for p in train_list.read_text().splitlines() if p.strip()]
-            smoke_paths, bg_paths = [], []
-
-            for img_path in image_paths:
-                label_path = Path(str(img_path).replace("images", "labels")).with_suffix(".txt")
-                if label_path.exists() and label_path.stat().st_size > 0:
-                    smoke_paths.append(str(img_path))
-                else:
-                    bg_paths.append(str(img_path))
-
-            n_smoke, n_bg = len(smoke_paths), len(bg_paths)
-            diff = abs(n_smoke - n_bg)
-
-            if diff == 0:
-                print("[INFO] Dataset already balanced.")
-                balanced_paths = smoke_paths + bg_paths
-            elif n_smoke < n_bg:
-                print(f"[INFO] Oversampling smoke images by {diff}. (seed={seed})")
-                smoke_paths += random.choices(smoke_paths, k=diff)
-                balanced_paths = smoke_paths + bg_paths
-            else:
-                print(f"[INFO] Oversampling background images by {diff}. (seed={seed})")
-                bg_paths += random.choices(bg_paths, k=diff)
-                balanced_paths = smoke_paths + bg_paths
-
-            random.shuffle(balanced_paths)
-            balanced_list.write_text("\n".join(balanced_paths))
-            print(f"[INFO] Saved new balanced train list → {balanced_list}")
-        else:
-            print(f"[INFO] Reusing existing balanced list → {balanced_list}")
-
-        # --- Create balanced dataset YAML ---
-        data_path_to_use = prepare_static_balanced_yaml(
-            base_yaml_path=args.data,
-            balanced_list_path=balanced_list,
-            output_dir=run_dir
-        )
-
-        # --- Log new class ratios ---
-        smoke_count, bg_count = count_smoke_and_background(balanced_list)
-        log_static_class_distribution(run_dir, smoke_count, bg_count)
-
-
-    elif sampling_mode == "dynamic":
-        print("[INFO] Weighted sampling mode: Dynamic (WeightedRandomSampler)")
-        data_path_to_use = args.data
-
-    else:
-        raise ValueError(f"Invalid weight_sampling mode: {sampling_mode}")
-
-    # -------------------------
-    # Train
-    # -------------------------
-    print(f"[INFO] Training {args.model_family}{args.model_size} | epochs={epochs} | aug={aug_bool} | mode={sampling_mode}")
-
-    if sampling_mode == "dynamic":
-        trainer = WeightedSamplerTrainer(overrides=dict(
-            data=str(data_path_to_use),
-            model=str(weights_path),
-            project=str(args.project),
-            name=str(args.name),
-            exist_ok=True,
-            save_json=True,
-            save_dir=str(run_dir),
-            epochs=epochs,
-            imgsz=int(args.imgsz),
-            batch=int(args.batch),
-            optimizer=str(args.optimizer),
-            lr0=float(args.lr0),
-            weight_decay=float(args.weight_decay),
-            momentum=float(args.momentum),
-            patience=int(args.patience),
-            save_period=2,
-            seed=int(args.seed),
-            deterministic=True,
-            verbose=True,
-            amp=True,
-            cos_lr=(args.scheduler == "cosine"),
-            workers=int(args.num_workers),
-            label_smoothing=float(args.label_smoothing),
-
-            **train_aug_kwargs,
-        ))
-        trainer.save_dir = run_dir
-        trainer.set_callback("on_train_epoch_end", log_class_balance)
-
-        results = trainer.train()
-
-        # expose model handle for param count below
-        model_for_params = trainer.model
-
-    else:
-        # standard YOLO path
-        model = YOLO(str(weights_path))
-        results = model.train(
-            data=str(data_path_to_use),
-            project=str(args.project),
-            name=str(args.name),
-            exist_ok=True,
-            save_json=True,
-            epochs=epochs,
-            imgsz=int(args.imgsz),
-            batch=int(args.batch),
-            optimizer=str(args.optimizer),
-            lr0=float(args.lr0),
-            weight_decay=float(args.weight_decay),
-            momentum=float(args.momentum),
-            patience=int(args.patience),
-            save_period=2,
-            seed=int(args.seed),
-            deterministic=True,
-            verbose=True,
-            amp=True,
-            cos_lr=(args.scheduler == "cosine"),
-            workers=int(args.num_workers),
-            label_smoothing=float(args.label_smoothing),
-
-            **train_aug_kwargs,
-        )
-        model_for_params = model.model
-
-    # -------------------------
-    # Metadata
-    # -------------------------
-    (run_dir / "hardware.json").write_text(json.dumps({
-        "gpu": torch.cuda.get_device_name(0) if torch.cuda.is_available() else "CPU",
-        "cuda": torch.version.cuda,
-        "torch": torch.__version__,
-    }, indent=2))
-
-    try:
-        params = sum(p.numel() for p in model_for_params.parameters())
-    except Exception:
-        params = "N/A"
-    (run_dir / "model_card.txt").write_text(
-        f"Model: {args.model_family}{args.model_size}\nParameters: {params}\n"
-    )
-    print(f"[DONE] Finished → {run_dir}")
+            end = time.time()
+            log_result(row, "error", start, end, err_msg=str(e), run_dir=run_dir)
+            print(f"[ERROR] {name_val}: {e}")
 
 if __name__ == "__main__":
     main()

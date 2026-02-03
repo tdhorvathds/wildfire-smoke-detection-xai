@@ -1,3 +1,9 @@
+"""
+NOTE:
+This script contains local absolute paths used during thesis experiments.
+To rerun the code, adapt the path definitions to match your local directory structure.
+"""
+
 from __future__ import annotations
 
 import csv
@@ -1493,7 +1499,6 @@ def evaluate_coco_loss(
         "AR_large": 0.0,
         "avg_dets_per_img": 0.0,
     }
-
 
 # -------------------------
 # Orchestration
