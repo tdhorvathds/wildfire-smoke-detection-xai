@@ -18,7 +18,11 @@ env/
 # ---- Jupyter ----
 .ipynb_checkpoints/
 
-# ---- Data (never commit large datasets) ----
+# ---- Caches / frameworks ----
+.cache/
+.streamlit/
+
+# ---- Data ----
 data/raw/
 data/processed/
 data/interim/
@@ -33,6 +37,16 @@ outputs/preds/
 outputs/xai/
 outputs/runs/
 outputs/tmp/
+
+# Ignore generated figures by default
+outputs/plots/
+*.png
+*.jpg
+*.jpeg
+*.svg
+*.pdf
+
+# ---- ML artifacts ----
 *.pt
 *.pth
 *.ckpt
@@ -46,3 +60,6 @@ outputs/tmp/
 
 # ---- Secrets / local paths ----
 configs/paths.yaml
+
+# ---- Temporary project helpers ----
+repo_tree.txt

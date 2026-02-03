@@ -1,0 +1,175 @@
+{
+  "folds": [
+    {
+      "fold": 1,
+      "seed": 22,
+      "splits": {
+        "train": {
+          "num_events": 19,
+          "num_images": 21607,
+          "num_smoke": 18068,
+          "num_nosmoke": 3539,
+          "smoke_ratio": 0.8362,
+          "event_ids": [
+            "force-06_cabanelle-327",
+            "force-06_courmettes-160",
+            "force-06_courmettes-212",
+            "force-06_courmettes-275",
+            "force-06_courmettes-80",
+            "force-06_ferion-287",
+            "force-06_valbonne-138",
+            "force-06_valbonne-349",
+            "sdis-07_brison-20",
+            "sdis-07_brison-200",
+            "sdis-07_brison-226",
+            "sdis-07_marguerite-185",
+            "sdis-07_marguerite-29",
+            "sdis-07_marguerite-339",
+            "sdis-07_serre-de-barre-0",
+            "sdis-07_serre-de-barre-108",
+            "sdis-07_serre-de-barre-160",
+            "sdis-07_serre-de-barre-350",
+            "sdis-77_croix-augas-212"
+          ]
+        },
+        "val": {
+          "num_events": 13,
+          "num_images": 5401,
+          "num_smoke": 4489,
+          "num_nosmoke": 912,
+          "smoke_ratio": 0.8311,
+          "event_ids": [
+            "force-06_cabanelle-244",
+            "force-06_cabanelle-46",
+            "force-06_ferion-60",
+            "force-06_valbonne-223",
+            "force-06_valbonne-67",
+            "sdis-07_brison-127",
+            "sdis-07_brison-290",
+            "sdis-07_brison-39",
+            "sdis-07_marguerite-282",
+            "sdis-07_serre-de-barre-250",
+            "sdis-07_serre-de-barre-4",
+            "sdis-77_croix-augas-161",
+            "sdis-77_croix-augas-8"
+          ]
+        }
+      },
+      "train_val_ratio": 4.001
+    },
+    {
+      "fold": 2,
+      "seed": 45,
+      "splits": {
+        "train": {
+          "num_events": 19,
+          "num_images": 21522,
+          "num_smoke": 17967,
+          "num_nosmoke": 3555,
+          "smoke_ratio": 0.8348,
+          "event_ids": [
+            "force-06_cabanelle-327",
+            "force-06_cabanelle-46",
+            "force-06_courmettes-160",
+            "force-06_courmettes-212",
+            "force-06_courmettes-275",
+            "force-06_ferion-60",
+            "force-06_valbonne-349",
+            "force-06_valbonne-67",
+            "sdis-07_brison-20",
+            "sdis-07_brison-200",
+            "sdis-07_brison-226",
+            "sdis-07_brison-290",
+            "sdis-07_brison-39",
+            "sdis-07_marguerite-282",
+            "sdis-07_marguerite-339",
+            "sdis-07_serre-de-barre-0",
+            "sdis-07_serre-de-barre-4",
+            "sdis-77_croix-augas-161",
+            "sdis-77_croix-augas-212"
+          ]
+        },
+        "val": {
+          "num_events": 13,
+          "num_images": 5486,
+          "num_smoke": 4590,
+          "num_nosmoke": 896,
+          "smoke_ratio": 0.8367,
+          "event_ids": [
+            "force-06_cabanelle-244",
+            "force-06_courmettes-80",
+            "force-06_ferion-287",
+            "force-06_valbonne-138",
+            "force-06_valbonne-223",
+            "sdis-07_brison-127",
+            "sdis-07_marguerite-185",
+            "sdis-07_marguerite-29",
+            "sdis-07_serre-de-barre-108",
+            "sdis-07_serre-de-barre-160",
+            "sdis-07_serre-de-barre-250",
+            "sdis-07_serre-de-barre-350",
+            "sdis-77_croix-augas-8"
+          ]
+        }
+      },
+      "train_val_ratio": 3.923
+    },
+    {
+      "fold": 3,
+      "seed": 118,
+      "splits": {
+        "train": {
+          "num_events": 19,
+          "num_images": 21605,
+          "num_smoke": 18032,
+          "num_nosmoke": 3573,
+          "smoke_ratio": 0.8346,
+          "event_ids": [
+            "force-06_cabanelle-46",
+            "force-06_courmettes-160",
+            "force-06_courmettes-212",
+            "force-06_courmettes-275",
+            "force-06_courmettes-80",
+            "force-06_ferion-287",
+            "force-06_valbonne-138",
+            "force-06_valbonne-349",
+            "sdis-07_brison-127",
+            "sdis-07_brison-200",
+            "sdis-07_brison-290",
+            "sdis-07_marguerite-282",
+            "sdis-07_marguerite-29",
+            "sdis-07_marguerite-339",
+            "sdis-07_serre-de-barre-108",
+            "sdis-07_serre-de-barre-160",
+            "sdis-07_serre-de-barre-350",
+            "sdis-77_croix-augas-212",
+            "sdis-77_croix-augas-8"
+          ]
+        },
+        "val": {
+          "num_events": 13,
+          "num_images": 5403,
+          "num_smoke": 4525,
+          "num_nosmoke": 878,
+          "smoke_ratio": 0.8375,
+          "event_ids": [
+            "force-06_cabanelle-244",
+            "force-06_cabanelle-327",
+            "force-06_ferion-60",
+            "force-06_valbonne-223",
+            "force-06_valbonne-67",
+            "sdis-07_brison-20",
+            "sdis-07_brison-226",
+            "sdis-07_brison-39",
+            "sdis-07_marguerite-185",
+            "sdis-07_serre-de-barre-0",
+            "sdis-07_serre-de-barre-250",
+            "sdis-07_serre-de-barre-4",
+            "sdis-77_croix-augas-161"
+          ]
+        }
+      },
+      "train_val_ratio": 3.999
+    }
+  ]
+}

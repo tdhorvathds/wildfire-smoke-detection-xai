@@ -1,0 +1,2002 @@
+[
+  {
+    "image_id": 6104,
+    "file_name": "sdis-07_brison-110_2024-09-05T11-29-55.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 0,
+    "has_tp": 0,
+    "has_fn": 1,
+    "has_fp": 0
+  },
+  {
+    "image_id": 1397,
+    "file_name": "force-06_ferion-142_2024-01-09T12-00-28.jpg",
+    "n_gt_boxes": 2,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 1024,
+    "file_name": "sdis-77_croix-augas-110_2024-07-14T20-55-40.jpg",
+    "n_gt_boxes": 0,
+    "has_smoke": 0,
+    "pred_smoke_ref": 1,
+    "has_tp": 0,
+    "has_fn": 0,
+    "has_fp": 1
+  },
+  {
+    "image_id": 4005,
+    "file_name": "sdis-07_brison-110_2024-02-16T17-02-58.jpg",
+    "n_gt_boxes": 2,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 1747,
+    "file_name": "force-06_ferion-142_2024-01-22T10-44-02.jpg",
+    "n_gt_boxes": 0,
+    "has_smoke": 0,
+    "pred_smoke_ref": 1,
+    "has_tp": 0,
+    "has_fn": 0,
+    "has_fp": 1
+  },
+  {
+    "image_id": 5919,
+    "file_name": "sdis-07_brison-110_2024-03-28T10-35-58.jpg",
+    "n_gt_boxes": 0,
+    "has_smoke": 0,
+    "pred_smoke_ref": 1,
+    "has_tp": 0,
+    "has_fn": 0,
+    "has_fp": 1
+  },
+  {
+    "image_id": 120,
+    "file_name": "force-06_cabanelle-125_2024-02-21T07-40-24.jpg",
+    "n_gt_boxes": 0,
+    "has_smoke": 0,
+    "pred_smoke_ref": 1,
+    "has_tp": 0,
+    "has_fn": 0,
+    "has_fp": 1
+  },
+  {
+    "image_id": 6181,
+    "file_name": "sdis-77_croix-augas-59_2024-07-04T22-38-46.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 6389,
+    "file_name": "sdis-77_croix-augas-59_2024-07-25T10-53-16.jpg",
+    "n_gt_boxes": 0,
+    "has_smoke": 0,
+    "pred_smoke_ref": 1,
+    "has_tp": 0,
+    "has_fn": 0,
+    "has_fp": 1
+  },
+  {
+    "image_id": 5467,
+    "file_name": "sdis-07_brison-110_2024-03-17T09-40-41.jpg",
+    "n_gt_boxes": 2,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 2778,
+    "file_name": "sdis-07_brison-110_2024-01-21T14-57-27.jpg",
+    "n_gt_boxes": 2,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 2968,
+    "file_name": "sdis-07_brison-110_2024-01-26T11-52-37.jpg",
+    "n_gt_boxes": 2,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 4583,
+    "file_name": "sdis-07_brison-110_2024-02-24T11-44-45.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 0,
+    "has_tp": 0,
+    "has_fn": 1,
+    "has_fp": 0
+  },
+  {
+    "image_id": 6264,
+    "file_name": "sdis-77_croix-augas-59_2024-07-08T15-49-04.jpg",
+    "n_gt_boxes": 0,
+    "has_smoke": 0,
+    "pred_smoke_ref": 1,
+    "has_tp": 0,
+    "has_fn": 0,
+    "has_fp": 1
+  },
+  {
+    "image_id": 195,
+    "file_name": "force-06_cabanelle-125_2024-02-21T08-32-23.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 79,
+    "file_name": "force-06_cabanelle-125_2024-01-08T13-07-33.jpg",
+    "n_gt_boxes": 0,
+    "has_smoke": 0,
+    "pred_smoke_ref": 1,
+    "has_tp": 0,
+    "has_fn": 0,
+    "has_fp": 1
+  },
+  {
+    "image_id": 1093,
+    "file_name": "sdis-77_croix-augas-110_2024-08-26T19-36-14.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 0,
+    "has_tp": 0,
+    "has_fn": 1,
+    "has_fp": 0
+  },
+  {
+    "image_id": 5921,
+    "file_name": "sdis-07_brison-110_2024-03-28T10-42-27.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 1
+  },
+  {
+    "image_id": 3796,
+    "file_name": "sdis-07_brison-110_2024-02-12T09-59-14.jpg",
+    "n_gt_boxes": 0,
+    "has_smoke": 0,
+    "pred_smoke_ref": 1,
+    "has_tp": 0,
+    "has_fn": 0,
+    "has_fp": 1
+  },
+  {
+    "image_id": 4110,
+    "file_name": "sdis-07_brison-110_2024-02-20T09-32-53.jpg",
+    "n_gt_boxes": 0,
+    "has_smoke": 0,
+    "pred_smoke_ref": 1,
+    "has_tp": 0,
+    "has_fn": 0,
+    "has_fp": 1
+  },
+  {
+    "image_id": 2185,
+    "file_name": "force-06_ferion-142_2024-02-28T15-00-22.jpg",
+    "n_gt_boxes": 0,
+    "has_smoke": 0,
+    "pred_smoke_ref": 1,
+    "has_tp": 0,
+    "has_fn": 0,
+    "has_fp": 1
+  },
+  {
+    "image_id": 6501,
+    "file_name": "sdis-77_croix-augas-59_2024-09-06T10-41-01.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 5857,
+    "file_name": "sdis-07_brison-110_2024-03-28T09-45-57.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 2310,
+    "file_name": "force-06_ferion-142_2024-02-29T11-42-03.jpg",
+    "n_gt_boxes": 2,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 2712,
+    "file_name": "sdis-07_brison-110_2024-01-21T14-14-40.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 883,
+    "file_name": "sdis-77_croix-augas-265_2024-08-03T12-14-24.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 0,
+    "has_tp": 0,
+    "has_fn": 1,
+    "has_fp": 0
+  },
+  {
+    "image_id": 874,
+    "file_name": "sdis-77_croix-augas-265_2024-08-03T12-11-07.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 0,
+    "has_tp": 0,
+    "has_fn": 1,
+    "has_fp": 0
+  },
+  {
+    "image_id": 5904,
+    "file_name": "sdis-07_brison-110_2024-03-28T10-30-24.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 1
+  },
+  {
+    "image_id": 1637,
+    "file_name": "force-06_ferion-142_2024-01-14T16-58-52.jpg",
+    "n_gt_boxes": 2,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 1612,
+    "file_name": "force-06_ferion-142_2024-01-14T16-45-52.jpg",
+    "n_gt_boxes": 0,
+    "has_smoke": 0,
+    "pred_smoke_ref": 1,
+    "has_tp": 0,
+    "has_fn": 0,
+    "has_fp": 1
+  },
+  {
+    "image_id": 934,
+    "file_name": "sdis-77_croix-augas-110_2024-07-14T19-31-46.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 0,
+    "has_tp": 0,
+    "has_fn": 1,
+    "has_fp": 0
+  },
+  {
+    "image_id": 2412,
+    "file_name": "sdis-07_brison-110_2024-01-01T14-13-00.jpg",
+    "n_gt_boxes": 2,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 731,
+    "file_name": "force-06_cabanelle-125_2024-06-14T07-21-42.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 5763,
+    "file_name": "sdis-07_brison-110_2024-03-27T14-17-12.jpg",
+    "n_gt_boxes": 2,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 5468,
+    "file_name": "sdis-07_brison-110_2024-03-17T09-41-11.jpg",
+    "n_gt_boxes": 2,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 1,
+    "file_name": "force-06_cabanelle-125_2024-01-04T08-34-18.jpg",
+    "n_gt_boxes": 0,
+    "has_smoke": 0,
+    "pred_smoke_ref": 1,
+    "has_tp": 0,
+    "has_fn": 0,
+    "has_fp": 1
+  },
+  {
+    "image_id": 4725,
+    "file_name": "sdis-07_brison-110_2024-02-29T10-32-24.jpg",
+    "n_gt_boxes": 2,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 70,
+    "file_name": "force-06_cabanelle-125_2024-01-08T13-00-07.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 1916,
+    "file_name": "force-06_ferion-142_2024-01-30T10-52-25.jpg",
+    "n_gt_boxes": 0,
+    "has_smoke": 0,
+    "pred_smoke_ref": 1,
+    "has_tp": 0,
+    "has_fn": 0,
+    "has_fp": 1
+  },
+  {
+    "image_id": 3808,
+    "file_name": "sdis-07_brison-110_2024-02-12T10-05-41.jpg",
+    "n_gt_boxes": 0,
+    "has_smoke": 0,
+    "pred_smoke_ref": 1,
+    "has_tp": 0,
+    "has_fn": 0,
+    "has_fp": 1
+  },
+  {
+    "image_id": 4996,
+    "file_name": "sdis-07_brison-110_2024-03-01T11-31-17.jpg",
+    "n_gt_boxes": 2,
+    "has_smoke": 1,
+    "pred_smoke_ref": 0,
+    "has_tp": 0,
+    "has_fn": 1,
+    "has_fp": 0
+  },
+  {
+    "image_id": 4731,
+    "file_name": "sdis-07_brison-110_2024-03-01T08-40-27.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 795,
+    "file_name": "force-06_cabanelle-125_2024-06-18T09-34-12.jpg",
+    "n_gt_boxes": 2,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 3711,
+    "file_name": "sdis-07_brison-110_2024-02-07T10-05-22.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 1
+  },
+  {
+    "image_id": 979,
+    "file_name": "sdis-77_croix-augas-110_2024-07-14T20-00-38.jpg",
+    "n_gt_boxes": 0,
+    "has_smoke": 0,
+    "pred_smoke_ref": 1,
+    "has_tp": 0,
+    "has_fn": 0,
+    "has_fp": 1
+  },
+  {
+    "image_id": 3998,
+    "file_name": "sdis-07_brison-110_2024-02-16T16-59-59.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 1510,
+    "file_name": "force-06_ferion-142_2024-01-10T14-37-32.jpg",
+    "n_gt_boxes": 0,
+    "has_smoke": 0,
+    "pred_smoke_ref": 1,
+    "has_tp": 0,
+    "has_fn": 0,
+    "has_fp": 1
+  },
+  {
+    "image_id": 4494,
+    "file_name": "sdis-07_brison-110_2024-02-23T11-17-49.jpg",
+    "n_gt_boxes": 2,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 5916,
+    "file_name": "sdis-07_brison-110_2024-03-28T10-35-16.jpg",
+    "n_gt_boxes": 0,
+    "has_smoke": 0,
+    "pred_smoke_ref": 1,
+    "has_tp": 0,
+    "has_fn": 0,
+    "has_fp": 1
+  },
+  {
+    "image_id": 6043,
+    "file_name": "sdis-07_brison-110_2024-06-13T06-04-31.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 0,
+    "has_tp": 0,
+    "has_fn": 1,
+    "has_fp": 0
+  },
+  {
+    "image_id": 1997,
+    "file_name": "force-06_ferion-142_2024-02-19T12-05-30.jpg",
+    "n_gt_boxes": 2,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 2041,
+    "file_name": "force-06_ferion-142_2024-02-24T10-54-40.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 0,
+    "has_tp": 0,
+    "has_fn": 1,
+    "has_fp": 0
+  },
+  {
+    "image_id": 568,
+    "file_name": "force-06_cabanelle-125_2024-04-03T10-24-01.jpg",
+    "n_gt_boxes": 0,
+    "has_smoke": 0,
+    "pred_smoke_ref": 1,
+    "has_tp": 0,
+    "has_fn": 0,
+    "has_fp": 1
+  },
+  {
+    "image_id": 4041,
+    "file_name": "sdis-07_brison-110_2024-02-16T17-20-52.jpg",
+    "n_gt_boxes": 2,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 4706,
+    "file_name": "sdis-07_brison-110_2024-02-29T09-42-30.jpg",
+    "n_gt_boxes": 0,
+    "has_smoke": 0,
+    "pred_smoke_ref": 1,
+    "has_tp": 0,
+    "has_fn": 0,
+    "has_fp": 1
+  },
+  {
+    "image_id": 2561,
+    "file_name": "sdis-07_brison-110_2024-01-09T13-32-15.jpg",
+    "n_gt_boxes": 2,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 93,
+    "file_name": "force-06_cabanelle-125_2024-02-16T12-11-11.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 2311,
+    "file_name": "force-06_ferion-142_2024-02-29T11-42-33.jpg",
+    "n_gt_boxes": 2,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 3970,
+    "file_name": "sdis-07_brison-110_2024-02-16T14-38-57.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 788,
+    "file_name": "force-06_cabanelle-125_2024-06-18T09-30-43.jpg",
+    "n_gt_boxes": 2,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 1
+  },
+  {
+    "image_id": 4999,
+    "file_name": "sdis-07_brison-110_2024-03-01T11-33-47.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 0,
+    "has_tp": 0,
+    "has_fn": 1,
+    "has_fp": 0
+  },
+  {
+    "image_id": 6559,
+    "file_name": "sdis-77_croix-augas-59_2024-09-11T16-01-33.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 0,
+    "has_tp": 0,
+    "has_fn": 1,
+    "has_fp": 0
+  },
+  {
+    "image_id": 4050,
+    "file_name": "sdis-07_brison-110_2024-02-16T17-25-36.jpg",
+    "n_gt_boxes": 2,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 5927,
+    "file_name": "sdis-07_brison-110_2024-03-28T10-43-46.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 5432,
+    "file_name": "sdis-07_brison-110_2024-03-17T09-19-10.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 1
+  },
+  {
+    "image_id": 1720,
+    "file_name": "force-06_ferion-142_2024-01-19T12-36-41.jpg",
+    "n_gt_boxes": 0,
+    "has_smoke": 0,
+    "pred_smoke_ref": 1,
+    "has_tp": 0,
+    "has_fn": 0,
+    "has_fp": 1
+  },
+  {
+    "image_id": 933,
+    "file_name": "sdis-77_croix-augas-110_2024-07-14T19-31-44.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 0,
+    "has_tp": 0,
+    "has_fn": 1,
+    "has_fp": 0
+  },
+  {
+    "image_id": 3948,
+    "file_name": "sdis-07_brison-110_2024-02-12T15-17-21.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 1
+  },
+  {
+    "image_id": 522,
+    "file_name": "force-06_cabanelle-125_2024-04-03T09-01-59.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 2226,
+    "file_name": "force-06_ferion-142_2024-02-28T16-20-04.jpg",
+    "n_gt_boxes": 0,
+    "has_smoke": 0,
+    "pred_smoke_ref": 1,
+    "has_tp": 0,
+    "has_fn": 0,
+    "has_fp": 1
+  },
+  {
+    "image_id": 4320,
+    "file_name": "sdis-07_brison-110_2024-02-21T14-36-55.jpg",
+    "n_gt_boxes": 0,
+    "has_smoke": 0,
+    "pred_smoke_ref": 1,
+    "has_tp": 0,
+    "has_fn": 0,
+    "has_fp": 1
+  },
+  {
+    "image_id": 1563,
+    "file_name": "force-06_ferion-142_2024-01-11T11-22-45.jpg",
+    "n_gt_boxes": 2,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 4600,
+    "file_name": "sdis-07_brison-110_2024-02-24T11-53-32.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 1
+  },
+  {
+    "image_id": 4273,
+    "file_name": "sdis-07_brison-110_2024-02-21T11-36-33.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 0,
+    "has_tp": 0,
+    "has_fn": 1,
+    "has_fp": 0
+  },
+  {
+    "image_id": 3559,
+    "file_name": "sdis-07_brison-110_2024-02-06T09-30-24.jpg",
+    "n_gt_boxes": 0,
+    "has_smoke": 0,
+    "pred_smoke_ref": 1,
+    "has_tp": 0,
+    "has_fn": 0,
+    "has_fp": 1
+  },
+  {
+    "image_id": 4836,
+    "file_name": "sdis-07_brison-110_2024-03-01T09-40-44.jpg",
+    "n_gt_boxes": 2,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 5460,
+    "file_name": "sdis-07_brison-110_2024-03-17T09-37-10.jpg",
+    "n_gt_boxes": 3,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 488,
+    "file_name": "force-06_cabanelle-125_2024-02-28T10-40-23.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 100,
+    "file_name": "force-06_cabanelle-125_2024-02-18T09-05-35.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 3815,
+    "file_name": "sdis-07_brison-110_2024-02-12T10-09-11.jpg",
+    "n_gt_boxes": 0,
+    "has_smoke": 0,
+    "pred_smoke_ref": 1,
+    "has_tp": 0,
+    "has_fn": 0,
+    "has_fp": 1
+  },
+  {
+    "image_id": 2408,
+    "file_name": "sdis-77_croix-augas-220_2024-07-28T19-18-51.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 1238,
+    "file_name": "force-06_ferion-142_2024-01-08T12-36-45.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 0,
+    "has_tp": 0,
+    "has_fn": 1,
+    "has_fp": 0
+  },
+  {
+    "image_id": 1312,
+    "file_name": "force-06_ferion-142_2024-01-08T14-33-27.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 1
+  },
+  {
+    "image_id": 5424,
+    "file_name": "sdis-07_brison-110_2024-03-17T09-12-10.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 0,
+    "has_tp": 0,
+    "has_fn": 1,
+    "has_fp": 0
+  },
+  {
+    "image_id": 4179,
+    "file_name": "sdis-07_brison-110_2024-02-21T10-50-02.jpg",
+    "n_gt_boxes": 3,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 3984,
+    "file_name": "sdis-07_brison-110_2024-02-16T16-40-29.jpg",
+    "n_gt_boxes": 2,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 6168,
+    "file_name": "sdis-77_croix-augas-59_2024-07-03T17-41-08.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 920,
+    "file_name": "sdis-77_croix-augas-110_2024-07-14T19-25-12.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 987,
+    "file_name": "sdis-77_croix-augas-110_2024-07-14T20-04-02.jpg",
+    "n_gt_boxes": 0,
+    "has_smoke": 0,
+    "pred_smoke_ref": 1,
+    "has_tp": 0,
+    "has_fn": 0,
+    "has_fp": 1
+  },
+  {
+    "image_id": 5534,
+    "file_name": "sdis-07_brison-110_2024-03-17T10-27-08.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 0,
+    "has_tp": 0,
+    "has_fn": 1,
+    "has_fp": 0
+  },
+  {
+    "image_id": 4361,
+    "file_name": "sdis-07_brison-110_2024-02-23T09-07-47.jpg",
+    "n_gt_boxes": 0,
+    "has_smoke": 0,
+    "pred_smoke_ref": 1,
+    "has_tp": 0,
+    "has_fn": 0,
+    "has_fp": 1
+  },
+  {
+    "image_id": 1523,
+    "file_name": "force-06_ferion-142_2024-01-11T10-33-45.jpg",
+    "n_gt_boxes": 2,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 5202,
+    "file_name": "sdis-07_brison-110_2024-03-08T11-09-01.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 1
+  },
+  {
+    "image_id": 3495,
+    "file_name": "sdis-07_brison-110_2024-02-05T12-01-07.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 1
+  },
+  {
+    "image_id": 414,
+    "file_name": "force-06_cabanelle-125_2024-02-27T14-16-56.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 932,
+    "file_name": "sdis-77_croix-augas-110_2024-07-14T19-31-27.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 0,
+    "has_tp": 0,
+    "has_fn": 1,
+    "has_fp": 0
+  },
+  {
+    "image_id": 3072,
+    "file_name": "sdis-07_brison-110_2024-01-28T10-25-09.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 3449,
+    "file_name": "sdis-07_brison-110_2024-02-05T11-35-37.jpg",
+    "n_gt_boxes": 2,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 1,
+    "has_fp": 1
+  },
+  {
+    "image_id": 2045,
+    "file_name": "force-06_ferion-142_2024-02-24T10-57-50.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 5127,
+    "file_name": "sdis-07_brison-110_2024-03-06T09-31-13.jpg",
+    "n_gt_boxes": 0,
+    "has_smoke": 0,
+    "pred_smoke_ref": 1,
+    "has_tp": 0,
+    "has_fn": 0,
+    "has_fp": 1
+  },
+  {
+    "image_id": 4074,
+    "file_name": "sdis-07_brison-110_2024-02-16T17-39-06.jpg",
+    "n_gt_boxes": 2,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 1404,
+    "file_name": "force-06_ferion-142_2024-01-09T12-03-59.jpg",
+    "n_gt_boxes": 2,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 2218,
+    "file_name": "force-06_ferion-142_2024-02-28T15-52-32.jpg",
+    "n_gt_boxes": 0,
+    "has_smoke": 0,
+    "pred_smoke_ref": 1,
+    "has_tp": 0,
+    "has_fn": 0,
+    "has_fp": 1
+  },
+  {
+    "image_id": 4504,
+    "file_name": "sdis-07_brison-110_2024-02-23T11-22-49.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 647,
+    "file_name": "force-06_cabanelle-125_2024-04-10T08-19-37.jpg",
+    "n_gt_boxes": 0,
+    "has_smoke": 0,
+    "pred_smoke_ref": 1,
+    "has_tp": 0,
+    "has_fn": 0,
+    "has_fp": 1
+  },
+  {
+    "image_id": 2078,
+    "file_name": "force-06_ferion-142_2024-02-24T11-20-19.jpg",
+    "n_gt_boxes": 2,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 466,
+    "file_name": "force-06_cabanelle-125_2024-02-27T14-56-35.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 5918,
+    "file_name": "sdis-07_brison-110_2024-03-28T10-35-45.jpg",
+    "n_gt_boxes": 0,
+    "has_smoke": 0,
+    "pred_smoke_ref": 1,
+    "has_tp": 0,
+    "has_fn": 0,
+    "has_fp": 1
+  },
+  {
+    "image_id": 2059,
+    "file_name": "force-06_ferion-142_2024-02-24T11-07-41.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 1
+  },
+  {
+    "image_id": 2483,
+    "file_name": "sdis-07_brison-110_2024-01-09T10-29-25.jpg",
+    "n_gt_boxes": 3,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 4923,
+    "file_name": "sdis-07_brison-110_2024-03-01T10-54-46.jpg",
+    "n_gt_boxes": 0,
+    "has_smoke": 0,
+    "pred_smoke_ref": 1,
+    "has_tp": 0,
+    "has_fn": 0,
+    "has_fp": 1
+  },
+  {
+    "image_id": 1737,
+    "file_name": "force-06_ferion-142_2024-01-21T11-06-26.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 4843,
+    "file_name": "sdis-07_brison-110_2024-03-01T09-44-15.jpg",
+    "n_gt_boxes": 2,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 3078,
+    "file_name": "sdis-07_brison-110_2024-01-28T10-28-09.jpg",
+    "n_gt_boxes": 2,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 2574,
+    "file_name": "sdis-07_brison-110_2024-01-09T13-38-16.jpg",
+    "n_gt_boxes": 2,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 1226,
+    "file_name": "force-06_ferion-142_2024-01-08T12-20-57.jpg",
+    "n_gt_boxes": 0,
+    "has_smoke": 0,
+    "pred_smoke_ref": 1,
+    "has_tp": 0,
+    "has_fn": 0,
+    "has_fp": 1
+  },
+  {
+    "image_id": 324,
+    "file_name": "force-06_cabanelle-125_2024-02-27T11-08-50.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 5519,
+    "file_name": "sdis-07_brison-110_2024-03-17T10-14-44.jpg",
+    "n_gt_boxes": 0,
+    "has_smoke": 0,
+    "pred_smoke_ref": 1,
+    "has_tp": 0,
+    "has_fn": 0,
+    "has_fp": 1
+  },
+  {
+    "image_id": 4597,
+    "file_name": "sdis-07_brison-110_2024-02-24T11-51-44.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 5555,
+    "file_name": "sdis-07_brison-110_2024-03-17T12-18-45.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 0,
+    "has_tp": 0,
+    "has_fn": 1,
+    "has_fp": 0
+  },
+  {
+    "image_id": 1029,
+    "file_name": "sdis-77_croix-augas-110_2024-07-22T12-13-34.jpg",
+    "n_gt_boxes": 2,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 1,
+    "has_fp": 0
+  },
+  {
+    "image_id": 2401,
+    "file_name": "sdis-77_croix-augas-220_2024-07-28T19-14-52.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 845,
+    "file_name": "sdis-77_croix-augas-265_2024-07-21T17-43-38.jpg",
+    "n_gt_boxes": 2,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 74,
+    "file_name": "force-06_cabanelle-125_2024-01-08T13-00-14.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 676,
+    "file_name": "force-06_cabanelle-125_2024-04-10T08-36-37.jpg",
+    "n_gt_boxes": 0,
+    "has_smoke": 0,
+    "pred_smoke_ref": 1,
+    "has_tp": 0,
+    "has_fn": 0,
+    "has_fp": 1
+  },
+  {
+    "image_id": 884,
+    "file_name": "sdis-77_croix-augas-265_2024-08-03T12-14-47.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 4649,
+    "file_name": "sdis-07_brison-110_2024-02-24T15-11-07.jpg",
+    "n_gt_boxes": 0,
+    "has_smoke": 0,
+    "pred_smoke_ref": 1,
+    "has_tp": 0,
+    "has_fn": 0,
+    "has_fp": 1
+  },
+  {
+    "image_id": 6087,
+    "file_name": "sdis-07_brison-110_2024-09-05T11-06-06.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 1616,
+    "file_name": "force-06_ferion-142_2024-01-14T16-48-55.jpg",
+    "n_gt_boxes": 0,
+    "has_smoke": 0,
+    "pred_smoke_ref": 1,
+    "has_tp": 0,
+    "has_fn": 0,
+    "has_fp": 1
+  },
+  {
+    "image_id": 6487,
+    "file_name": "sdis-77_croix-augas-59_2024-09-03T14-52-56.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 0,
+    "has_tp": 0,
+    "has_fn": 1,
+    "has_fp": 0
+  },
+  {
+    "image_id": 6552,
+    "file_name": "sdis-77_croix-augas-59_2024-09-11T15-57-50.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 0,
+    "has_tp": 0,
+    "has_fn": 1,
+    "has_fp": 0
+  },
+  {
+    "image_id": 4226,
+    "file_name": "sdis-07_brison-110_2024-02-21T11-07-37.jpg",
+    "n_gt_boxes": 3,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 973,
+    "file_name": "sdis-77_croix-augas-110_2024-07-14T19-58-14.jpg",
+    "n_gt_boxes": 0,
+    "has_smoke": 0,
+    "pred_smoke_ref": 1,
+    "has_tp": 0,
+    "has_fn": 0,
+    "has_fp": 1
+  },
+  {
+    "image_id": 2114,
+    "file_name": "force-06_ferion-142_2024-02-25T10-02-43.jpg",
+    "n_gt_boxes": 2,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 970,
+    "file_name": "sdis-77_croix-augas-110_2024-07-14T19-55-18.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 0,
+    "has_tp": 0,
+    "has_fn": 1,
+    "has_fp": 0
+  },
+  {
+    "image_id": 2356,
+    "file_name": "force-06_ferion-142_2024-02-29T12-07-33.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 4010,
+    "file_name": "sdis-07_brison-110_2024-02-16T17-07-29.jpg",
+    "n_gt_boxes": 2,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 3119,
+    "file_name": "sdis-07_brison-110_2024-01-31T09-54-00.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 2575,
+    "file_name": "sdis-07_brison-110_2024-01-09T13-38-46.jpg",
+    "n_gt_boxes": 2,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 5474,
+    "file_name": "sdis-07_brison-110_2024-03-17T09-46-25.jpg",
+    "n_gt_boxes": 2,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 3383,
+    "file_name": "sdis-07_brison-110_2024-02-05T11-02-43.jpg",
+    "n_gt_boxes": 3,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 3568,
+    "file_name": "sdis-07_brison-110_2024-02-06T14-05-19.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 778,
+    "file_name": "force-06_cabanelle-125_2024-06-14T08-37-44.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 0,
+    "has_tp": 0,
+    "has_fn": 1,
+    "has_fp": 0
+  },
+  {
+    "image_id": 1864,
+    "file_name": "force-06_ferion-142_2024-01-30T10-25-58.jpg",
+    "n_gt_boxes": 0,
+    "has_smoke": 0,
+    "pred_smoke_ref": 1,
+    "has_tp": 0,
+    "has_fn": 0,
+    "has_fp": 1
+  },
+  {
+    "image_id": 6034,
+    "file_name": "sdis-07_brison-110_2024-06-13T06-00-30.jpg",
+    "n_gt_boxes": 0,
+    "has_smoke": 0,
+    "pred_smoke_ref": 1,
+    "has_tp": 0,
+    "has_fn": 0,
+    "has_fp": 1
+  },
+  {
+    "image_id": 5163,
+    "file_name": "sdis-07_brison-110_2024-03-08T09-20-28.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 1
+  },
+  {
+    "image_id": 3200,
+    "file_name": "sdis-07_brison-110_2024-02-05T08-41-32.jpg",
+    "n_gt_boxes": 0,
+    "has_smoke": 0,
+    "pred_smoke_ref": 1,
+    "has_tp": 0,
+    "has_fn": 0,
+    "has_fp": 1
+  },
+  {
+    "image_id": 6453,
+    "file_name": "sdis-77_croix-augas-59_2024-09-01T18-49-15.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 6084,
+    "file_name": "sdis-07_brison-110_2024-09-05T11-05-37.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 2225,
+    "file_name": "force-06_ferion-142_2024-02-28T16-20-01.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 5479,
+    "file_name": "sdis-07_brison-110_2024-03-17T09-47-41.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 1
+  },
+  {
+    "image_id": 1432,
+    "file_name": "force-06_ferion-142_2024-01-09T13-23-57.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 2965,
+    "file_name": "sdis-07_brison-110_2024-01-26T11-50-15.jpg",
+    "n_gt_boxes": 2,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 591,
+    "file_name": "force-06_cabanelle-125_2024-04-07T10-03-54.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 5607,
+    "file_name": "sdis-07_brison-110_2024-03-21T10-56-22.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 0,
+    "has_fn": 1,
+    "has_fp": 1
+  },
+  {
+    "image_id": 3056,
+    "file_name": "sdis-07_brison-110_2024-01-28T09-56-15.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 4971,
+    "file_name": "sdis-07_brison-110_2024-03-01T11-16-47.jpg",
+    "n_gt_boxes": 0,
+    "has_smoke": 0,
+    "pred_smoke_ref": 1,
+    "has_tp": 0,
+    "has_fn": 0,
+    "has_fp": 1
+  },
+  {
+    "image_id": 5842,
+    "file_name": "sdis-07_brison-110_2024-03-28T09-38-56.jpg",
+    "n_gt_boxes": 2,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 1705,
+    "file_name": "force-06_ferion-142_2024-01-19T12-30-12.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 890,
+    "file_name": "sdis-77_croix-augas-265_2024-08-15T19-11-07.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 1
+  },
+  {
+    "image_id": 2990,
+    "file_name": "sdis-07_brison-110_2024-01-27T14-45-55.jpg",
+    "n_gt_boxes": 0,
+    "has_smoke": 0,
+    "pred_smoke_ref": 1,
+    "has_tp": 0,
+    "has_fn": 0,
+    "has_fp": 1
+  },
+  {
+    "image_id": 1774,
+    "file_name": "force-06_ferion-142_2024-01-26T10-43-34.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 2053,
+    "file_name": "force-06_ferion-142_2024-02-24T11-06-41.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 0,
+    "has_fn": 1,
+    "has_fp": 1
+  },
+  {
+    "image_id": 533,
+    "file_name": "force-06_cabanelle-125_2024-04-03T09-06-30.jpg",
+    "n_gt_boxes": 2,
+    "has_smoke": 1,
+    "pred_smoke_ref": 0,
+    "has_tp": 0,
+    "has_fn": 1,
+    "has_fp": 0
+  },
+  {
+    "image_id": 3046,
+    "file_name": "sdis-07_brison-110_2024-01-28T09-48-08.jpg",
+    "n_gt_boxes": 2,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 6159,
+    "file_name": "sdis-77_croix-augas-59_2024-07-03T17-31-32.jpg",
+    "n_gt_boxes": 0,
+    "has_smoke": 0,
+    "pred_smoke_ref": 1,
+    "has_tp": 0,
+    "has_fn": 0,
+    "has_fp": 1
+  },
+  {
+    "image_id": 2469,
+    "file_name": "sdis-07_brison-110_2024-01-09T10-12-10.jpg",
+    "n_gt_boxes": 3,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 22,
+    "file_name": "force-06_cabanelle-125_2024-01-08T12-43-26.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 2560,
+    "file_name": "sdis-07_brison-110_2024-01-09T13-31-46.jpg",
+    "n_gt_boxes": 2,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 666,
+    "file_name": "force-06_cabanelle-125_2024-04-10T08-29-36.jpg",
+    "n_gt_boxes": 0,
+    "has_smoke": 0,
+    "pred_smoke_ref": 1,
+    "has_tp": 0,
+    "has_fn": 0,
+    "has_fp": 1
+  },
+  {
+    "image_id": 455,
+    "file_name": "force-06_cabanelle-125_2024-02-27T14-50-27.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 4766,
+    "file_name": "sdis-07_brison-110_2024-03-01T09-06-10.jpg",
+    "n_gt_boxes": 2,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 3981,
+    "file_name": "sdis-07_brison-110_2024-02-16T16-38-51.jpg",
+    "n_gt_boxes": 3,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 3994,
+    "file_name": "sdis-07_brison-110_2024-02-16T16-47-36.jpg",
+    "n_gt_boxes": 5,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 5125,
+    "file_name": "sdis-07_brison-110_2024-03-06T09-23-29.jpg",
+    "n_gt_boxes": 0,
+    "has_smoke": 0,
+    "pred_smoke_ref": 1,
+    "has_tp": 0,
+    "has_fn": 0,
+    "has_fp": 1
+  },
+  {
+    "image_id": 4347,
+    "file_name": "sdis-07_brison-110_2024-02-23T09-02-45.jpg",
+    "n_gt_boxes": 0,
+    "has_smoke": 0,
+    "pred_smoke_ref": 1,
+    "has_tp": 0,
+    "has_fn": 0,
+    "has_fp": 1
+  },
+  {
+    "image_id": 4112,
+    "file_name": "sdis-07_brison-110_2024-02-20T09-33-23.jpg",
+    "n_gt_boxes": 0,
+    "has_smoke": 0,
+    "pred_smoke_ref": 1,
+    "has_tp": 0,
+    "has_fn": 0,
+    "has_fp": 1
+  },
+  {
+    "image_id": 2203,
+    "file_name": "force-06_ferion-142_2024-02-28T15-17-22.jpg",
+    "n_gt_boxes": 0,
+    "has_smoke": 0,
+    "pred_smoke_ref": 1,
+    "has_tp": 0,
+    "has_fn": 0,
+    "has_fp": 1
+  },
+  {
+    "image_id": 1714,
+    "file_name": "force-06_ferion-142_2024-01-19T12-33-41.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 5703,
+    "file_name": "sdis-07_brison-110_2024-03-27T13-35-14.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 6489,
+    "file_name": "sdis-77_croix-augas-59_2024-09-03T14-53-49.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 0,
+    "has_tp": 0,
+    "has_fn": 1,
+    "has_fp": 0
+  },
+  {
+    "image_id": 5499,
+    "file_name": "sdis-07_brison-110_2024-03-17T10-06-11.jpg",
+    "n_gt_boxes": 0,
+    "has_smoke": 0,
+    "pred_smoke_ref": 1,
+    "has_tp": 0,
+    "has_fn": 0,
+    "has_fp": 1
+  },
+  {
+    "image_id": 1358,
+    "file_name": "force-06_ferion-142_2024-01-09T10-16-39.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 1
+  },
+  {
+    "image_id": 798,
+    "file_name": "force-06_cabanelle-125_2024-06-18T09-35-41.jpg",
+    "n_gt_boxes": 2,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 6570,
+    "file_name": "sdis-77_croix-augas-59_2024-09-14T16-38-18.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 1
+  },
+  {
+    "image_id": 452,
+    "file_name": "force-06_cabanelle-125_2024-02-27T14-48-57.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 5427,
+    "file_name": "sdis-07_brison-110_2024-03-17T09-17-47.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 2273,
+    "file_name": "force-06_ferion-142_2024-02-29T10-17-02.jpg",
+    "n_gt_boxes": 2,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 6103,
+    "file_name": "sdis-07_brison-110_2024-09-05T11-29-17.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 0,
+    "has_tp": 0,
+    "has_fn": 1,
+    "has_fp": 0
+  },
+  {
+    "image_id": 131,
+    "file_name": "force-06_cabanelle-125_2024-02-21T07-44-22.jpg",
+    "n_gt_boxes": 0,
+    "has_smoke": 0,
+    "pred_smoke_ref": 1,
+    "has_tp": 0,
+    "has_fn": 0,
+    "has_fp": 1
+  },
+  {
+    "image_id": 2503,
+    "file_name": "sdis-07_brison-110_2024-01-09T10-45-42.jpg",
+    "n_gt_boxes": 2,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 1
+  },
+  {
+    "image_id": 4070,
+    "file_name": "sdis-07_brison-110_2024-02-16T17-37-29.jpg",
+    "n_gt_boxes": 2,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 4485,
+    "file_name": "sdis-07_brison-110_2024-02-23T11-13-19.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 5773,
+    "file_name": "sdis-07_brison-110_2024-03-27T14-19-02.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 3391,
+    "file_name": "sdis-07_brison-110_2024-02-05T11-06-36.jpg",
+    "n_gt_boxes": 2,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 6554,
+    "file_name": "sdis-77_croix-augas-59_2024-09-11T15-59-42.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 0,
+    "has_tp": 0,
+    "has_fn": 1,
+    "has_fp": 0
+  },
+  {
+    "image_id": 4480,
+    "file_name": "sdis-07_brison-110_2024-02-23T11-11-07.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 0
+  },
+  {
+    "image_id": 700,
+    "file_name": "force-06_cabanelle-125_2024-04-10T08-56-08.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 1,
+    "has_fn": 0,
+    "has_fp": 1
+  },
+  {
+    "image_id": 3686,
+    "file_name": "sdis-07_brison-110_2024-02-07T09-09-42.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 0,
+    "has_tp": 0,
+    "has_fn": 1,
+    "has_fp": 0
+  },
+  {
+    "image_id": 5000,
+    "file_name": "sdis-07_brison-110_2024-03-01T11-33-54.jpg",
+    "n_gt_boxes": 1,
+    "has_smoke": 1,
+    "pred_smoke_ref": 1,
+    "has_tp": 0,
+    "has_fn": 1,
+    "has_fp": 1
+  }
+]
